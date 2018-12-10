@@ -9,6 +9,11 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+jar {
+    baseName = 'beatheartserver'
+    version = '1.0.0'
+}
+
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 

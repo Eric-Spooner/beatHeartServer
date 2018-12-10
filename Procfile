@@ -1,1 +1,1 @@
-web: java -jar target/beatheartfactory-1.0-SNAPSHOT.jar
+web: java -jar build/libs/beatheartserver-1.0.0.jar
