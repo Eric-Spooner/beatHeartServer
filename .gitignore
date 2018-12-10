@@ -20,3 +20,5 @@ local.properties
 .gradle/
 build/
 bin/
+/out/artifacts/artefact/artefact.jar
+/service/coreService/out/production/resources/commons-logging.properties
