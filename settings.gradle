@@ -1,4 +1,4 @@
-rootProject.name = 'myoControl'
+rootProject.name = 'beatheartfactory'
 include 'interface'
 include 'interface:springserver'
 include 'interface:android'

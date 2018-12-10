@@ -2,12 +2,15 @@ plugins {
     id 'org.springframework.boot' version '1.5.9.RELEASE'
 }
 
-group 'myocontrol'
+group 'beatheartfactory'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
 
 repositories {
     mavenCentral()
