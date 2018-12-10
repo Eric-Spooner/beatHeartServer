@@ -3,6 +3,7 @@ package com.beatheartfactory.server;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -29,6 +30,17 @@ public class Application {
                 LOG.info(beanName);
             }
         };
+    }
+
+    @Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+        return (container -> {
+            container.setContextPath("");
+            if (System.getenv("PORT") != null) {
+                container.setPort(Integer.valueOf(System.getenv("PORT")));
+
+            }
+        });
     }
 
 }
