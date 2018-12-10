@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+apply from: 'dependencies.gradle'

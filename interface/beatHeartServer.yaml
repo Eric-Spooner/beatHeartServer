@@ -1,0 +1,141 @@
+swagger: '2.0'
+info:
+  description: Beat Heart documentation for communication between server and client
+  version: '0.1'
+  title: Beat Heart Server
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: server@beatheart.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: user
+    description: Everything for user control
+  - name: game
+    description: Everything for gaming
+  - name: stats
+    description: Everything for statistics
+schemes:
+  - http
+paths:
+  /user/{userId}:
+    get:
+      parameters:
+        - in: path
+          name: userId
+          description: "ID of pet to return"
+          required: true
+          type: string
+      tags:
+        - user
+      summary: Get the user by id
+      operationId: getUser
+      produces:
+        - application/json
+      security:
+        - apiKey: []
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+  /user:
+    post:
+      tags:
+        - user
+      operationId: postUser
+      summary: Posts a new user
+      description: Posts a new user
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        201:
+          description: OK
+          schema:
+            type: integer
+            format: int64
+            description: The id of the newly created user
+  /user/{userId}/gameStats:
+    post:
+      tags:
+        - game
+      operationId: postGameStats
+      summary: Posts new game statistics
+      description: Posts a new game statistic
+      parameters:
+        - in: path
+          name: userId
+          description: "ID of pet to return"
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/GameStatistics'
+      responses:
+        200:
+          description: OK
+  /user/{userId}/stats:
+    post:
+      tags:
+        - game
+      operationId: postStats
+      summary: Posts new general statistics
+      description: Posts a new tatistic
+      parameters:
+        - in: path
+          name: userId
+          description: "ID of pet to return"
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Activity'
+      responses:
+        200:
+          description: OK
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    in: header
+    name: X-API-Key
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      firstname:
+        type: string
+      lastname:
+        type: string
+      username:
+        type: string
+  GameStatistics:
+    type: object
+    properties:
+      duration:
+        type: integer
+        format: int64
+      name:
+        type: string
+        enum: [Flappy, Rhythm]
+      score:
+        type: integer
+        format: int64
+  Activity:
+    type: object
+    properties:
+      duration:
+        type: integer
+        format: int64
+      actionType:
+        type: string

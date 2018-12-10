@@ -1,0 +1,49 @@
+plugins {
+    id 'org.hidetake.swagger.generator' version '2.9.0'
+}
+
+apply plugin: 'org.hidetake.swagger.generator'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+sourceSets{
+    main{
+        java{
+            srcDirs += ["${buildDir}/swagger"]
+        }
+    }
+}
+
+swaggerSources {
+    shecore {
+        inputFile = file('../beatHeartServer.yaml')
+        code {
+            language = 'spring'
+            configFile = file('swagger.conf.json')
+        }
+    }
+}
+
+ task copySwaggerOut(type: Copy){
+     dependsOn generateSwaggerCodeShecore
+
+     from("build/swagger-code-shecore/src/main/java"){
+         exclude "**/*Controller.java"
+         exclude "**/io/"
+         exclude "**/resources/"
+         exclude ".swagger-codegen"
+         exclude "README.md"
+         exclude ".swagger-codegen-ignore"
+         exclude "pom.xml"
+     }
+//     into sourceSets.main.java.srcDir().iterator().next();
+     into "build/swagger"
+ }
+
+compileJava.dependsOn copySwaggerOut
+
+apply from: 'dependencies.gradle'

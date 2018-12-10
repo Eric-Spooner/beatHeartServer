@@ -1,0 +1,8 @@
+rootProject.name = 'myoControl'
+include 'interface'
+include 'interface:springserver'
+include 'interface:android'
+include 'service'
+include 'service:coreService'
+include 'service:thalmicMyo'
+include 'service:analogOutput'

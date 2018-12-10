@@ -1,0 +1,24 @@
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:$spring_boot_version"){
+        exclude module: "spring-boot-starter-logging"
+    }
+
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.2.3'
+
+    compile 'io.swagger:swagger-annotations:1.5.16'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    compile 'com.google.code.gson:gson:2.8.1'
+
+    compile "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+
+    compile group: 'com.squareup.retrofit', name: 'retrofit', version: '1.9.0'
+    compile group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.common', version: '0.31'
+    compile group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.client', version: '1.0.0'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+
+    compile 'com.google.android:android:2.1_r1'
+
+    testCompile 'junit:junit:4.11'
+}

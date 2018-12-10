@@ -1,0 +1,24 @@
+dependencies {
+    compile project(":interface:springserver")
+    compile project(":service:thalmicMyo")
+
+    compile("org.springframework.boot:spring-boot-starter-web:$spring_boot_version"){
+        exclude module: "spring-boot-starter-logging"
+    }
+    compile 'commons-logging:commons-logging:1.2'
+
+    compile 'io.swagger:swagger-annotations:1.5.16'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    compile 'com.google.code.gson:gson:2.8.1'
+
+    compile "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    compile 'io.swagger:swagger-codegen:2.2.3'
+
+    //Bluetooth
+    compile group: 'com.github.hypfvieh', name: 'bluez-dbus', version: '0.0.2'
+
+    testCompile 'junit:junit:4.11'
+}
