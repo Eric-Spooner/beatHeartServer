@@ -19,7 +19,7 @@ sourceSets{
 }
 
 swaggerSources {
-    shecore {
+    beatheart {
         inputFile = file('../beatHeartServer.yaml')
         code {
             language = 'java'
@@ -29,9 +29,9 @@ swaggerSources {
 }
 
  task copySwaggerOut(type: Copy){
-     dependsOn generateSwaggerCodeShecore
+     dependsOn generateSwaggerCodeBeatheart
 
-     from("build/swagger-code-shecore/src/main/java"){
+     from("build/swagger-code-beatheart/src/main/java"){
          exclude "**/*Controller.java"
          exclude "**/io/"
          exclude ".swagger-codegen"

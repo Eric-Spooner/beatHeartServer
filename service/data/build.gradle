@@ -4,6 +4,4 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testCompile 'junit:junit:4.11'
-}
+apply from: 'dependencies.gradle'

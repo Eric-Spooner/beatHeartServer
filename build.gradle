@@ -14,7 +14,7 @@ repositories {
 }
 
 springBoot {
-    mainClass = "com.cdlaboratory.myocontrol.Application"
+    mainClass = "com.beatheartfactory.server.Application"
 }
 
 apply from: 'dependencies.gradle'

@@ -1,8 +1,8 @@
 {
     "library":"spring-mvc",
     "dateLibrary":"java8",
-    "invokerPackage":"com.cdlaboratory.myocontrol.core.server",
-    "modelPackage":"com.cdlaboratory.myocontrol.core.server.model",
-    "apiPackage":"com.cdlaboratory.myocontrol.core.server.api",
+    "invokerPackage":"com.beatheartfactory.server",
+    "modelPackage":"com.beatheartfactory.server.model",
+    "apiPackage":"com.beatheartfactory.server.api",
     "serializableModel":true
 }

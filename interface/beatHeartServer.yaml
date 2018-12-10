@@ -10,8 +10,8 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: user
-    description: Everything for user control
+  - name: server
+    description: Everything for server control
   - name: game
     description: Everything for gaming
   - name: stats
@@ -26,10 +26,11 @@ paths:
           name: userId
           description: "ID of pet to return"
           required: true
-          type: string
+          type: integer
+          format: int32
       tags:
-        - user
-      summary: Get the user by id
+        - server
+      summary: Get the server by id
       operationId: getUser
       produces:
         - application/json
@@ -39,16 +40,14 @@ paths:
         '200':
           description: successful operation
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/User'
+            $ref: '#/definitions/User'
   /user:
     post:
       tags:
-        - user
+        - server
       operationId: postUser
-      summary: Posts a new user
-      description: Posts a new user
+      summary: Posts a new server
+      description: Posts a new server
       parameters:
         - in: body
           name: body
@@ -59,8 +58,8 @@ paths:
           description: OK
           schema:
             type: integer
-            format: int64
-            description: The id of the newly created user
+            format: int32
+            description: The id of the newly created server
   /user/{userId}/gameStats:
     post:
       tags:
@@ -73,7 +72,8 @@ paths:
           name: userId
           description: "ID of pet to return"
           required: true
-          type: string
+          type: integer
+          format: int32
         - in: body
           name: body
           schema:
@@ -93,7 +93,8 @@ paths:
           name: userId
           description: "ID of pet to return"
           required: true
-          type: string
+          type: integer
+          format: int32
         - in: body
           name: body
           schema:
@@ -112,7 +113,7 @@ definitions:
     properties:
       id:
         type: integer
-        format: int64
+        format: int32
       firstname:
         type: string
       lastname:
@@ -124,18 +125,18 @@ definitions:
     properties:
       duration:
         type: integer
-        format: int64
+        format: int32
       name:
         type: string
         enum: [Flappy, Rhythm]
       score:
         type: integer
-        format: int64
+        format: int32
   Activity:
     type: object
     properties:
       duration:
         type: integer
-        format: int64
+        format: int32
       actionType:
         type: string

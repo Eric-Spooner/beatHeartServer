@@ -1,8 +1,5 @@
 dependencies {
     compile 'commons-logging:commons-logging:1.2'
 
-    //Bluetooth
-    compile group: 'com.github.hypfvieh', name: 'bluez-dbus', version: '0.0.2'
-
     testCompile 'junit:junit:4.11'
 }

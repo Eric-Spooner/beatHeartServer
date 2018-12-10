@@ -7,6 +7,5 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.11'
     compile project(':service:coreService')
-    compile project(':service:thalmicMyo')
-    compile project(':service:analogOutput')
+    compile project(':service:data')
 }

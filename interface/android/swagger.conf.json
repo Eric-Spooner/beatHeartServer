@@ -1,9 +1,9 @@
 {
     "library":"retrofit",
     "dateLibrary":"java8",
-    "invokerPackage":"com.cdlaboratory.myocontrol.core.client",
-    "modelPackage":"com.cdlaboratory.myocontrol.core.client.model",
-    "apiPackage":"com.cdlaboratory.myocontrol.core.client.api",
+    "invokerPackage":"com.beatheartfactory.server",
+    "modelPackage":"com.beatheartfactory.server.model",
+    "apiPackage":"com.beatheartfactory.server.api",
     "serializableModel":true,
     "parcelableModel": true
 }

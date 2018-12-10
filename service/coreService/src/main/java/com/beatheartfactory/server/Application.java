@@ -1,4 +1,4 @@
-package com.cdlaboratory.myocontrol;
+package com.beatheartfactory.server;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
