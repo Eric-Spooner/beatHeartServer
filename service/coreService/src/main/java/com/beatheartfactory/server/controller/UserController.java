@@ -34,12 +34,14 @@ public class UserController implements UserApi {
 
     @Override
     public ResponseEntity<Void> postGameStats(@PathVariable Integer userId, @RequestBody GameStatistics body) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        LOG.info(String.format("User with id %d has a new GameStatistic %s", userId, body));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<Void> postStats(@PathVariable Integer userId, @RequestBody Activity body) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        LOG.info(String.format("User with id %d has a new Activity %s", userId, body));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @Override
