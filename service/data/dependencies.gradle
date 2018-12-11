@@ -1,5 +1,11 @@
 dependencies {
+    compile project(":interface:springserver")
+    
     compile 'commons-logging:commons-logging:1.2'
+
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.3.RELEASE'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
 
     testCompile 'junit:junit:4.11'
 }

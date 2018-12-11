@@ -19,19 +19,12 @@ tags:
 schemes:
   - http
 paths:
-  /user/{userId}:
+  /users:
     get:
-      parameters:
-        - in: path
-          name: userId
-          description: "ID of pet to return"
-          required: true
-          type: integer
-          format: int32
       tags:
         - server
-      summary: Get the server by id
-      operationId: getUser
+      summary: Get the users
+      operationId: getUsers
       produces:
         - application/json
       security:
@@ -40,14 +33,15 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/User'
-  /user:
+            type: array
+            items:
+              $ref: '#/definitions/User'
     post:
       tags:
         - server
       operationId: postUser
-      summary: Posts a new server
-      description: Posts a new server
+      summary: Posts a new user
+      description: Posts a new user
       parameters:
         - in: body
           name: body
@@ -59,8 +53,30 @@ paths:
           schema:
             type: integer
             format: int32
-            description: The id of the newly created server
-  /user/{userId}/gameStats:
+            description: The id of the newly created user
+  /users/{userId}:
+    get:
+      parameters:
+        - in: path
+          name: userId
+          description: "ID of user to return"
+          required: true
+          type: integer
+          format: int32
+      tags:
+        - server
+      summary: Get the user by id
+      operationId: getUserById
+      produces:
+        - application/json
+      security:
+        - apiKey: []
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/User'
+  /users/{userId}/gameStats:
     post:
       tags:
         - game
@@ -81,7 +97,7 @@ paths:
       responses:
         200:
           description: OK
-  /user/{userId}/stats:
+  /users/{userId}/stats:
     post:
       tags:
         - game
@@ -119,6 +135,8 @@ definitions:
       lastname:
         type: string
       username:
+        type: string
+      description:
         type: string
   GameStatistics:
     type: object

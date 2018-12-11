@@ -1,5 +1,6 @@
 dependencies {
     compile project(":interface:springserver")
+    compile project(":service:data")
 
     compile("org.springframework.boot:spring-boot-starter-web:$spring_boot_version"){
         exclude module: "spring-boot-starter-logging"
